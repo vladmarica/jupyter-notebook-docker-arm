@@ -34,6 +34,9 @@ RUN pip3 install --upgrade pip
 RUN pip2 install --upgrade pip
 RUN pip3 install readline jupyter
 
+# Fix Python3 kernel since IPykernel 5.0.0 has dependency issues.
+RUN pip3 install "ipykernel==4.10.0" --force-reinstall 
+
 # Install the IPython 2 kernel
 RUN pip2 install ipykernel && python2 -m ipykernel install
 
